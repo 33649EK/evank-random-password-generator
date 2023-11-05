@@ -1,19 +1,30 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordLength = window.prompt("How many characters would you like your password to be?");
-var lowerChar = window.confirm("Would you like lowercase letters?");
-var upperChar = window.confirm("Would you like uppercase letters?");
-var numberChar = window.confirm("Would you like to have numbers?");
-var specialChar = window.confirm("Would you like special characters?");
 
-// Write password to the #password input
 function writePassword() {
-  let result = ''
-  const letterOptions = 'abcdefghijklmnopqrstuvwxyz'
-  letterOptions.split('')
-  const specialOptions = "~`!@#$%^&*()_-+={[}]|;'<,>.?/"
-    specialOptions.split("")
+  let result = "";
+  const letterOptions = "abcdefghijklmnopqrstuvwxyz";
+  letterOptions.split("");
+  const specialOptions = "~`!@#$%^&*()_-+={[}]|;'<,>.?/";
+  specialOptions.split("");
+
+  var passwordLength = window.prompt(
+    "How many characters would you like your password to be? Minimum: 8 Maximum: 125"
+  );
+
+  if (passwordLength < 8 || passwordLength > 125) {
+    return;
+  }
+
+  var lowerChar = window.confirm("Would you like lowercase letters?");
+  var specialChar = window.confirm("Would you like special characters?");
+  var upperChar = window.confirm("Would you like uppercase letters?");
+  var numberChar = window.confirm("Would you like to have numbers?");
   
+  if (!lowerChar && !specialChar && !upperChar && !numberChar) {
+    return;
+  }
+
   for (i = 0; i < passwordLength; i++) {
     var letterIndex = Math.floor(Math.random() * letterOptions.length);
     var lowerCaseChoice = letterOptions[letterIndex];
