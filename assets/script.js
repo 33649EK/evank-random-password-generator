@@ -12,7 +12,7 @@ function writePassword() {
     "How many characters would you like your password to be? Minimum: 8 Maximum: 125"
   );
 
-  if (passwordLength < 8 || passwordLength > 125) {
+  if (passwordLength < 8 || passwordLength > 128) {
     return;
   }
 
